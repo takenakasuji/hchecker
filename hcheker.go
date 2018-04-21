@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"github.com/fatih/color"
 )
 
 // Response struct
@@ -19,6 +20,7 @@ func main() {
 
 	var (
 		strURL = flag.String("url", "", "help message for \"url\" option")
+		strFormat = flag.String("format", "inline", "help message for \"format\" option")
 	)
 
 	flag.Parse()
@@ -39,6 +41,22 @@ func main() {
 		Header:     resp.Header,
 	}
 
-	JSON, _ := json.Marshal(res)
-	fmt.Println(string(JSON))
+	if *strFormat == "inline" {
+		c := color.New(color.FgGreen, color.Bold)
+		fmt.Printf("Status: ")
+		c.Printf("%s\n", res.Status)
+		fmt.Printf("StatusCode: ")
+		c.Printf("%v\n", res.StatusCode)
+		
+		for key, value := range res.Header {
+			fmt.Printf("%s: ", key)
+			c.Printf("%s\n", value)
+		}
+	}
+
+	if *strFormat == "json" {
+		JSON, _ := json.Marshal(res)
+		fmt.Println(string(JSON))
+		return
+	}
 }
