@@ -10,6 +10,14 @@ This tool is useful if you want to easily check the http header.
 ![demo](https://raw.githubusercontent.com/takenakasuji/hchecker/master/pictures/json_format_example.gif)
 
 ## Command Line Options
+### -url
+Enter URL to request
+Note: This option is mandatory
+
+```
+./hchecker -url https://google.com
+``` 
+
 ### -format
 Select display format type
 
