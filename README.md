@@ -1,13 +1,6 @@
 # hchecker
-
-## What is hchecker
 hcheker is bodyless browser.
-
-## Usage
-
-```
-./hchecker -url https://example.com
-```
+This tool is useful if you want to easily check the http header.
 
 ## Demo
 ### Output type inline
@@ -15,6 +8,20 @@ hcheker is bodyless browser.
 
 ### Output type json
 ![demo](https://raw.githubusercontent.com/takenakasuji/hchecker/master/pictures/json_format_example.gif)
+
+## Command Line Options
+### -format
+Select display format type
+
+#### Usage
+```
+# Display line type
+# Inline type is the default, so if you do'nt select the inline option, it will automatically be of this type.
+./hchecker -url https://google.com -formt inline
+
+# Display json type
+./hchecker -url https://google.com -formt json
+``` 
 
 ## Features
 
